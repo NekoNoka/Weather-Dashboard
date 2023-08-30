@@ -46,12 +46,13 @@ function populateDays(json) {
     json.list.map((data) => {
         data.main.temp = Math.floor((data.main.temp * 9 / 5 - 459.67) * 100) / 100
     });
+
     for (let i = 0; i < 5; i++) {
+
         let data = json.list[i * 8];
         var m_names = new Array("January", "February", "March",
             "April", "May", "June", "July", "August", "September",
             "October", "November", "December");
-
 
         var currentDate = new Date(data.dt * 1000);
         var curr_date = currentDate.getDate();
@@ -67,7 +68,6 @@ function populateDays(json) {
         document.querySelector(`#day${i + 1}`).children[1].children[1].textContent = data.main.temp;
         document.querySelector(`#day${i + 1}`).children[2].children[1].textContent = data.main.humidity + "%";
         document.querySelector(`#day${i + 1}`).children[3].children[1].textContent = data.wind.speed;
-
     }
 }
 
